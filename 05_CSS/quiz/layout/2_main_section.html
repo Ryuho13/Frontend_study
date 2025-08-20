@@ -7,19 +7,117 @@
   <title>Document</title>
 
   <style>
+    .main-background{
+      width: 100%;
+      height: 500px;
+      /* 섹션 영역의 높이는 고정값으로 정해진게 아니라면 지정하지 않는 것을 권장
+        why? 콘텐츠의 유동성 보상
+        높이 지정x -> 콘텐츠 기반(내부의 내용물 크기에 맞게 자연스럽게 결정되도록)
+      */
+      background-image: url("images/shoes.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      text-align: center;
+      /* margin collapse 현상(마진상쇄)피하기 = */
+      /* 1. 테두리가 안붙게 살짝 떠어뜨림(꼼수) */
+      /* padding: 0.1% */
+      /* padding 상용하기:0.1px */
+      /* 패딩 */
+      padding-top: 50px;
+
+      position: relative;
+    }
+    .main-content {
+      color: #fff;
+    }  
+    .main-title{
+      color: #fff;
+      font-size: 40px;
+      /* (참고) margin collapse 현상(마진 상쇄)
+        : 박스(블록 요소)들의 테두리가 만나면 margin이 합쳐짐
+        박스가 내부에서 만나든 외부에서 만나든 상관없이 마진을 하나로 합쳐주고
+        둘 다 마진이 있으면 둘 중에 더 큰 마진을 하나만 적용
+
+        1. 박스2개가 부모-자식 관계로 위쪽 테두리가 겹친 상태
+        2. 박스2개가 형제 간계러 위, 아래, 테두리가 겹친상태
+      */
+    }
+    .main-button{
+        padding: 10px 30px;
+        font-size: 20px;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        cursor: pointer;
+    }
+    .main-button:hover{
+        background-color: #ccc;
+    }
+
+      /* 겹치는 레이아웃 만들기
+        => position 사용 */
     .sub-description {
+      /* 부모 width의 80%만 차지하다가 넓어지면 최대 700px 까지만 늘어나도록 */
       width: 80%;        
       max-width: 700px;  
-      margin: 0 auto; 
-      background-color: royalblue;
-      color: white;
+      background-color: rgb(255, 255, 255);
       padding: 10px;
-      box-shadow: 5px 5px #000;
-      border-radius: 10px;
+      color: rgb(0, 0, 0);
+      border-radius: 20px;
+
+      /* 1) relative 사용 시 */
+      /* position: relative;
+      top: 100px;
+      margin: 0 auto; */
+
+      /* 2) absolute 사용 시 */
+      position: absolute;
+      bottom: -100px;
+      left: 0;
+      right: 0;
+      margin: auto;
     }
+    .history {
+      background-color: #aeaeae;
+      padding: 100px 20px 40px;
+    }
+    .history > h4 {
+      text-align: center;
+    }
+
+    .nav-container{
+      /* height: 40px; */
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .menu{
+      display: flex;
+      list-style: none;
+      /* 메뉴 항목 사이에 간격을 넣는 방법(2가지)
+      1)gap(in Flexbox)
+      2)margin
+
+      /* 방법1 */
+      column-gap: 10px;
+    }
+    /* 방법2 */
+    /* .menu-item + .menu-item{
+      margin-left: 10px;
+    } */
   </style>
 </head>
 <body>
+  <nav class="nav-container">
+    <h1>Shoes shop</h1>
+    <ul class="menu">
+      <li class="menu-item">Product</li>
+      <li class="menu-item">Services</li>
+    </ul>
+  </nav>
+
   <div class="main-background">
     <h4 class="main-title">Buy our excellent shoes!</h4>
     <p class="main-content">
