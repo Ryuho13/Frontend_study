@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    .login-background{
+      background-color: #fff;
+      padding: 20px;
+    }
+    .login-container{
+      display: flex;
+      margin: 0 auto;
+      flex-direction: column;
+      justify-content: center;
+      width: 480px;
+      height: 280px;
+      border: 1px solid rgb(225, 225, 225);
+      border-radius: 20px;
+      padding-top: 10px;
+      /* unicode-bidi: isolate; */
+    }
+    .login-box{
+      width: 85%;
+      margin: 0 auto;
+      position: relative;
+    }
+    input[type="text"]{
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+      position: relative;    
+      padding: 27px 15px 8px;
+      height: 60px;
+      z-index: 1;
+      outline: none;
+
+    }
+    .email-text{
+      border-radius: 8px 8px 0 0;
+    }
+    .password-text{
+      border-top: none;
+      border-radius: 0 0 8px 8px ;
+    }
+    label[for="email-text"]{
+      left: 15px;
+      display: inline-block;
+      position: absolute;
+      z-index: 5;
+      bottom: 18px;
+    }
+    label[for="password-text"]{
+      left: 15px;
+      display: inline-block;
+      position: absolute;
+      z-index: 5;
+      bottom: 18px;
+    }
+    .login-container > div:last-child{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      outline: none;
+      padding-top: 10px;
+    }
+   
+    button{
+      margin: 0 auto;
+      padding: 10px;
+      width: 85%;
+      border-radius: 10px;
+      bottom: 0;
+    }
+    .log{
+      background-color: rgb(56, 255, 119);
+      outline: none;
+      border-color: transparent;
+      color: black;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .create{
+      background-color:#fff;
+      outline: none;
+      border-color: rgb(56, 255, 119);
+      color: rgb(56, 255, 119);
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div class="login-background">
+    <div class="login-container">
+      <div class="login-box" id="id">
+        <input type="text" class="email-text">
+        <label for="email-text" class="text-label">아이디 또는 전화번호</label>
+      </div>
+      <div class= "login-box" id="password">
+        <input type="text" class="password-text" >
+        <label for="password-text" class="text-label">비밀번호</label>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="log">로그인</button>
+        <button type="button" class="create">회원가입</button>
+      </div>
+    </div>
+
+  </div>  
+</body>
+</html>
