@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+
+  
+  <style>
+    .circle{
+      margin-top: 20px;
+      margin-left: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: aqua;
+    }
+    .case{
+      display: flex;
+      height: 22px  
+    }
+    .stack,
+    .btn{
+      box-sizing: border-box;
+      padding: 0;
+      height: 100%;
+      outline: none;
+    }
+    .piled{
+      height: 70px;
+      width: 190px;
+      outline: none;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>홀수? 짝수?</h1>
+
+  
+  <button type="button" class="plus">구슬 추가</button>
+  <button type="button" class="num">홀짝</button>
+  <button type="button" class="reset">초기화</button>
+  <br>
+
+  <div id="container" style="display: flex;"></div>
+
+  <h1>문자 누적하기</h1>
+
+  <div class="case">
+    <input type="text" class="stack" value="">
+    <button type="button" class="btn">누적</button>
+  </div>
+  <br>
+  <input type="text" class="piled">
+
+  <script>
+    const plsEl = document.querySelector('.plus');
+    const numEl = document.querySelector('.num');
+    const resEl = document.querySelector('.reset');
+    const ctrEl = document.querySelector('#container');
+
+
+    plsEl.addEventListener('click',function () {
+      ctrEl.innerHTML +='<div class="circle"></div>';
+    });
+    resEl.addEventListener('click',function () {
+      ctrEl.innerHTML ='';
+    });
+    numEl.addEventListener('click',function () {
+      const count = ctrEl.querySelectorAll('.circle').length;
+      if (count % 2 === 0) {
+        alert('짝수 입니다.');
+      }else{
+        alert('홀수 입니다.');
+      }
+    });
+
+    const stkEl = document.querySelector('.stack');
+    const btnEl = document.querySelector('.btn');
+    const pilEl = document.querySelector('.piled');
+
+    btnEl.addEventListener('click', function () {
+      let stkVal = stkEl.value; 
+      pilEl.value += stkVal
+      if (pilEl) {
+        stkEl.value = "";
+      }
+    })
+
+
+
+  </script>
+
+</body>
+</html>

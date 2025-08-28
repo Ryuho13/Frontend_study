@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .combo{
+      /* display: flex; */
+      flex-direction: column;
+    }
+   
+  </style>
+</head>
+<body>
+  <h1>콤보세트</h1>
+  <div>개수
+    <input type="text" class="order">
+    <button type="button" class="btn">주문</button>
+  </div>
+  <div class="combo">
+    <!-- <img src="./images/coke.png" alt="콜라">
+    <img src="./images/popcorn.png" alt="팝콘">
+    <img src="./images/popcorn.png" alt="팝콘"> -->
+  </div>
+
+  <script>
+    const textBox = document.querySelector('.order');
+    const btn = document.querySelector('.btn');
+    const comboDiv = document.querySelector('.combo');
+
+    btn.addEventListener('click', function () {
+      const orderValue = parseInt(textBox.value);
+      // console.log(orderValue)
+      comboDiv.innerHTML = '';
+
+      for (let i = 0; i < orderValue; i++) {
+        const setDiv = document.createElement('div');
+        setDiv.classList.add('set');
+
+        const cokeImg = document.createElement('img');
+        cokeImg.src = './images/coke.png';
+        cokeImg.alt = '콜라';
+
+        const popcorn1 = document.createElement('img');
+        popcorn1.src = './images/popcorn.png';
+        popcorn1.alt = '팝콘';
+
+        const popcorn2 = document.createElement('img');
+        popcorn2.src = './images/popcorn.png';
+        popcorn2.alt = '팝콘';
+
+        setDiv.appendChild(cokeImg);
+        setDiv.appendChild(popcorn1);
+        setDiv.appendChild(popcorn2);
+
+        comboDiv.appendChild(setDiv);
+      }
+      
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <style>
+    /* img.spg{ */
+      /* width: 200px; */
+      /* height: 200px; */
+    /* } */
+  
+    
+
+  </style>
+<body>
+  
+  <h1>자라나라 스폰지밥</h1>
+  <button type="button" class="btn">+</button>
+  <br>
+  <img src="./07_JavaScript/homework/images/sponge.png" alt="스폰지밥" class="spg" width="50">
+
+  <script>
+    const spgEl = document.querySelector('.spg');
+    
+    const btnEl = document.querySelector('.btn');
+    
+    btnEl.addEventListener('click',function () {
+      console.log(spgEl.width);
+      //  변수에 저장해두고 저장된 값을 사용
+      const imgWidth = spgEl.width ;
+      const imgHeight = spgEl.height;
+
+      //  방법1: HTML 속성(attribute) -> DOM속성(property)
+      spgEl.width = imgHeight + 100;
+      spgEl.height = imgHeight + 100;
+    })
+
+  </script>
+</body>
+</html>

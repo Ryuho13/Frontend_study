@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .contain{
+      display: flex;
+      position: relative;
+    }
+    .cha{
+      border: 2px ,solid, rgb(111, 210, 100);
+      height: 100px;
+      width:  100px;
+      border-radius: 50%;
+      background-image: url(./images/sponge.png);
+      background-size: cover;
+      background-position: center;
+    }
+    #sel{
+      position: relative;
+      max-height: 20px;
+      bottom: -84px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>스폰지밥, 뚱이,징징이</h1>
+  <div class="contain">
+    <select id="sel">
+      <option value="1" id="spg">스폰지밥</option>
+      <option value="2" id="dong">뚱이</option>
+      <option value="3" id="jing">징징이</option>
+    </select>
+    <div class="cha"></div>
+  </div>
+
+  <script>
+    const select = document.querySelector('#sel')
+    const imgSel = document.querySelector('.cha')
+
+    select.addEventListener('change', function() {
+      if(select.value === "1") {
+        imgSel.style.backgroundImage = "url(./images/sponge.png)";
+      } 
+      else if(select.value === "2"){
+        imgSel.style.backgroundImage = "url(./images/dung.png)";
+      }
+      else if (select.value === "3") {
+        imgSel.style.backgroundImage = "url(./images/human.png)";
+      }
+    })
+
+  </script>
+</body>
+</html>
